@@ -19,3 +19,15 @@ function avg(arr) {
 }
 
 console.log(avg([1,2,3,4,5,10]));
+
+function isPangram(str) {
+    const alphabetString = "abcdefghijklmnopqrstuvwxyz";
+    const alphabetArray = alphabetString.split("");
+    const strLower = str.toLowerCase();
+    for (let alpha of alphabetArray) {
+        if (strLower.indexOf(alpha) === -1) return false;
+    }
+    return true;
+}
+
+console.log(isPangram("Sphinx of black quartz, judge my vow."));
