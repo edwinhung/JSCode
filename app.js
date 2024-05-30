@@ -31,3 +31,15 @@ function isPangram(str) {
 }
 
 console.log(isPangram("Sphinx of black quartz, judge my vow."));
+
+function getCard() {
+    const RANK = ['2','3','4','5','6','7','8','9','10','J','Q','K','A'];
+    const SUIT = ['diamond','spade','heart','club'];
+    return {
+        value: RANK[Math.floor(Math.random() * 13)],
+        suit: SUIT[Math.floor(Math.random() * 4)]
+    }
+}
+
+console.log(getCard());
+console.log(getCard());
