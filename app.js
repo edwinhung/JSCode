@@ -43,3 +43,26 @@ function getCard() {
 
 console.log(getCard());
 console.log(getCard());
+
+let bird = 'bird';
+function printBird() {
+    console.log(bird);
+}
+printBird();
+
+// higher order functions
+// return functions
+const powerOf = function(x) { // x >= 0
+    return function(num) {
+        let sum = 1;
+        for (let i = 0; i < x; i++) {
+            sum *= num;
+        }
+        return sum;
+    }
+}
+
+const square = powerOf(2);
+const cube = powerOf(3);
+console.log(square(2));
+console.log(cube(5));
