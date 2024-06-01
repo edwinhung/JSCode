@@ -66,3 +66,6 @@ const square = powerOf(2);
 const cube = powerOf(3);
 console.log(square(2));
 console.log(cube(5));
+// forEach with index argument
+nums = [2,3,4,5,6,7];
+nums.forEach((num, idx) => console.log(idx,num));
