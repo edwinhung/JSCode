@@ -94,3 +94,8 @@ console.log(nums);
 // string is an iterable
 let Nole = "GOAT";
 console.log(...Nole);
+
+let SlamRank = ["Nole", "Murray", "Med", "Sinner"];
+const [first, ...others] = SlamRank;
+console.log(first);
+console.log(others);
