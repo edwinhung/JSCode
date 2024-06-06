@@ -107,3 +107,17 @@
 // };
 
 // console.log(result);
+let Novak = {
+  first: "Novak",
+  last: "Djokovic",
+  nick: "Nole",
+  getName() {
+    const { first, last, nick } = this;
+    return `${first} ${last} AKA ${nick}`;
+  },
+  printName() {
+    console.log(`${this.getName()} is GOAT`);
+  },
+};
+
+Novak.printName();
