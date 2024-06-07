@@ -118,10 +118,18 @@ let Novak = {
   printName() {
     console.log(`${this.getName()} is GOAT`);
   },
-  ha: () => {
-    console.log(this);
+  ha() {
+    setInterval(function () {
+      console.log(this);
+    }, 2000);
+  },
+  haha() {
+    setInterval(() => {
+      console.log(this);
+    }, 2000);
   },
 };
 
 Novak.printName();
 Novak.ha();
+Novak.haha();
