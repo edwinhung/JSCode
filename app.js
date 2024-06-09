@@ -133,3 +133,8 @@ let Novak = {
 Novak.printName();
 Novak.ha();
 Novak.haha();
+
+const img = document.createElement("img");
+img.src =
+  "https://media.cnn.com/api/v1/images/stellar/prod/gettyimages-2156502455.jpg?c=16x9&q=h_438,w_780,c_fill";
+document.body.append(img);
