@@ -145,3 +145,8 @@
 // todoItem.classList.remove("done");
 // todoItem.classList.toggle("done"); // add done class if done is not present
 // todoItem.classList.toggle("done"); // remove done class if done is present
+
+const btn = document.querySelector("button");
+btn.addEventListener("mouseover", () => {
+  console.log("Hey!");
+});
