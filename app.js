@@ -148,5 +148,8 @@
 
 const btn = document.querySelector("button");
 btn.addEventListener("mouseover", () => {
-  console.log("Hey!");
+  const h = Math.floor(Math.random() * window.innerHeight);
+  const w = Math.floor(Math.random() * window.innerWidth);
+  btn.style.top = `${h}px`;
+  btn.style.left = `${w}px`;
 });
