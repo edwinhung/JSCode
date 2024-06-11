@@ -150,7 +150,8 @@ const colors = ["red", "orange", "yellow", "green", "blue", "indigo", "violet"];
 const boxes = document.querySelector("#boxes");
 const h2 = document.querySelector("h2");
 
-const pick = function () {
+const pick = function (e) {
+  console.log(e);
   h2.style.color = this.style.backgroundColor;
 };
 
@@ -161,3 +162,7 @@ for (let color of colors) {
   box.addEventListener("click", pick);
   boxes.append(box);
 }
+
+document.body.addEventListener("keypress", function (e) {
+  console.log(e);
+});
