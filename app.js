@@ -107,41 +107,41 @@
 // };
 
 // console.log(result);
-let Novak = {
-  first: "Novak",
-  last: "Djokovic",
-  nick: "Nole",
-  getName() {
-    const { first, last, nick } = this;
-    return `${first} ${last} AKA ${nick}`;
-  },
-  printName() {
-    console.log(`${this.getName()} is GOAT`);
-  },
-  ha() {
-    setInterval(function () {
-      console.log(this);
-    }, 2000);
-  },
-  haha() {
-    setInterval(() => {
-      console.log(this);
-    }, 2000);
-  },
-};
+// let Novak = {
+//   first: "Novak",
+//   last: "Djokovic",
+//   nick: "Nole",
+//   getName() {
+//     const { first, last, nick } = this;
+//     return `${first} ${last} AKA ${nick}`;
+//   },
+//   printName() {
+//     console.log(`${this.getName()} is GOAT`);
+//   },
+//   ha() {
+//     setInterval(function () {
+//       console.log(this);
+//     }, 2000);
+//   },
+//   haha() {
+//     setInterval(() => {
+//       console.log(this);
+//     }, 2000);
+//   },
+// };
 
-Novak.printName();
-Novak.ha();
-Novak.haha();
+// Novak.printName();
+// Novak.ha();
+// Novak.haha();
 
-const img = document.createElement("img");
-img.src =
-  "https://media.cnn.com/api/v1/images/stellar/prod/gettyimages-2156502455.jpg?c=16x9&q=h_438,w_780,c_fill";
-document.body.append(img);
+// const img = document.createElement("img");
+// img.src =
+//   "https://media.cnn.com/api/v1/images/stellar/prod/gettyimages-2156502455.jpg?c=16x9&q=h_438,w_780,c_fill";
+// document.body.append(img);
 
-// manipulate classes
-const todoItem = document.querySelector("#todo .todo");
-todoItem.classList.add("done");
-todoItem.classList.remove("done");
-todoItem.classList.toggle("done"); // add done class if done is not present
-todoItem.classList.toggle("done"); // remove done class if done is present
+// // manipulate classes
+// const todoItem = document.querySelector("#todo .todo");
+// todoItem.classList.add("done");
+// todoItem.classList.remove("done");
+// todoItem.classList.toggle("done"); // add done class if done is not present
+// todoItem.classList.toggle("done"); // remove done class if done is present
