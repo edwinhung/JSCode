@@ -147,11 +147,17 @@
 // todoItem.classList.toggle("done"); // remove done class if done is present
 
 const colors = ["red", "orange", "yellow", "green", "blue", "indigo", "violet"];
-
 const boxes = document.querySelector("#boxes");
+const h2 = document.querySelector("h2");
+
+const pick = function () {
+  h2.style.color = this.style.backgroundColor;
+};
+
 for (let color of colors) {
   const box = document.createElement("div");
   box.style.backgroundColor = color;
   box.classList.add("box");
+  box.addEventListener("click", pick);
   boxes.append(box);
 }
