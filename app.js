@@ -166,3 +166,16 @@
 // document.body.addEventListener("keypress", function (e) {
 //   console.log(e);
 // });
+const form = document.querySelector("#form");
+const commitInput = document.querySelector("#commit");
+const checkbox = document.querySelector("#check");
+const sportsSelect = document.querySelector("#sports");
+
+formData = {};
+
+for (let input of [commitInput, checkbox, sportsSelect]) {
+  input.addEventListener("input", ({ target }) => {
+    const { name, type, value, checked } = target;
+    formData[name] = type === "checkbox" ? checked : value;
+  });
+}
