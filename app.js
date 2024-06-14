@@ -146,23 +146,23 @@
 // todoItem.classList.toggle("done"); // add done class if done is not present
 // todoItem.classList.toggle("done"); // remove done class if done is present
 
-const colors = ["red", "orange", "yellow", "green", "blue", "indigo", "violet"];
-const boxes = document.querySelector("#boxes");
-const h2 = document.querySelector("h2");
+// const colors = ["red", "orange", "yellow", "green", "blue", "indigo", "violet"];
+// const boxes = document.querySelector("#boxes");
+// const h2 = document.querySelector("h2");
 
-const pick = function (e) {
-  console.log(e);
-  h2.style.color = this.style.backgroundColor;
-};
+// const pick = function (e) {
+//   console.log(e);
+//   h2.style.color = this.style.backgroundColor;
+// };
 
-for (let color of colors) {
-  const box = document.createElement("div");
-  box.style.backgroundColor = color;
-  box.classList.add("box");
-  box.addEventListener("click", pick);
-  boxes.append(box);
-}
+// for (let color of colors) {
+//   const box = document.createElement("div");
+//   box.style.backgroundColor = color;
+//   box.classList.add("box");
+//   box.addEventListener("click", pick);
+//   boxes.append(box);
+// }
 
-document.body.addEventListener("keypress", function (e) {
-  console.log(e);
-});
+// document.body.addEventListener("keypress", function (e) {
+//   console.log(e);
+// });
