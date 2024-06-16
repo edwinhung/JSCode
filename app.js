@@ -179,3 +179,9 @@ for (let input of [commitInput, checkbox, sportsSelect]) {
     formData[name] = type === "checkbox" ? checked : value;
   });
 }
+
+const submitBtn = document.querySelector("input[type='submit']");
+setTimeout(() => {
+  submitBtn.style.transform = "translateX(300px)";
+  setTimeout(() => (submitBtn.style.transform = "translateX(400px)"), 500);
+}, 500);
