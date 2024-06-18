@@ -185,3 +185,22 @@ setTimeout(() => {
   submitBtn.style.transform = "translateX(300px)";
   setTimeout(() => (submitBtn.style.transform = "translateX(400px)"), 500);
 }, 500);
+
+const makePromise = () => {
+  return new Promise((resolve, reject) => {
+    const rand = Math.random();
+    if (rand < 0.5) {
+      resolve();
+    } else {
+      reject();
+    }
+  });
+};
+
+makePromise()
+  .then(() => {
+    console.log("fullfill!");
+  })
+  .catch(() => {
+    console.log("failed!");
+  });
