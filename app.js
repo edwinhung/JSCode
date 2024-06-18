@@ -186,21 +186,28 @@ setTimeout(() => {
   setTimeout(() => (submitBtn.style.transform = "translateX(400px)"), 500);
 }, 500);
 
-const makePromise = () => {
+const fakeRequest = (url) => {
   return new Promise((resolve, reject) => {
-    const rand = Math.random();
-    if (rand < 0.5) {
-      resolve();
-    } else {
-      reject();
-    }
+    setTimeout(() => {
+      const pages = {
+        "/users": [{ id: 1, username: "Jack" }],
+        "/about": "This is Home Page",
+      };
+      const data = pages[url];
+      if (data) {
+        resolve({ status: 200, data });
+      } else {
+        reject({ status: 404 });
+      }
+    }, 1000);
   });
 };
 
-makePromise()
-  .then(() => {
-    console.log("fullfill!");
+fakeRequest("/about")
+  .then((res) => {
+    console.log(res.status);
+    console.log(res.data);
   })
-  .catch(() => {
-    console.log("failed!");
+  .catch((res) => {
+    console.log(res.status);
   });
