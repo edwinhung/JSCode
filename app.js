@@ -211,3 +211,10 @@
 //   .catch((res) => {
 //     console.log(res.status);
 //   });
+fetch("https://swapi.dev/api/people/2").then((res) => {
+  res.json().then((data) => {
+    for (let film of data.films) {
+      console.log(film);
+    }
+  });
+});
