@@ -166,48 +166,48 @@
 // document.body.addEventListener("keypress", function (e) {
 //   console.log(e);
 // });
-const form = document.querySelector("#form");
-const commitInput = document.querySelector("#commit");
-const checkbox = document.querySelector("#check");
-const sportsSelect = document.querySelector("#sports");
+// const form = document.querySelector("#form");
+// const commitInput = document.querySelector("#commit");
+// const checkbox = document.querySelector("#check");
+// const sportsSelect = document.querySelector("#sports");
 
-formData = {};
+// formData = {};
 
-for (let input of [commitInput, checkbox, sportsSelect]) {
-  input.addEventListener("input", ({ target }) => {
-    const { name, type, value, checked } = target;
-    formData[name] = type === "checkbox" ? checked : value;
-  });
-}
+// for (let input of [commitInput, checkbox, sportsSelect]) {
+//   input.addEventListener("input", ({ target }) => {
+//     const { name, type, value, checked } = target;
+//     formData[name] = type === "checkbox" ? checked : value;
+//   });
+// }
 
-const submitBtn = document.querySelector("input[type='submit']");
-setTimeout(() => {
-  submitBtn.style.transform = "translateX(300px)";
-  setTimeout(() => (submitBtn.style.transform = "translateX(400px)"), 500);
-}, 500);
+// const submitBtn = document.querySelector("input[type='submit']");
+// setTimeout(() => {
+//   submitBtn.style.transform = "translateX(300px)";
+//   setTimeout(() => (submitBtn.style.transform = "translateX(400px)"), 500);
+// }, 500);
 
-const fakeRequest = (url) => {
-  return new Promise((resolve, reject) => {
-    setTimeout(() => {
-      const pages = {
-        "/users": [{ id: 1, username: "Jack" }],
-        "/about": "This is Home Page",
-      };
-      const data = pages[url];
-      if (data) {
-        resolve({ status: 200, data });
-      } else {
-        reject({ status: 404 });
-      }
-    }, 1000);
-  });
-};
+// const fakeRequest = (url) => {
+//   return new Promise((resolve, reject) => {
+//     setTimeout(() => {
+//       const pages = {
+//         "/users": [{ id: 1, username: "Jack" }],
+//         "/about": "This is Home Page",
+//       };
+//       const data = pages[url];
+//       if (data) {
+//         resolve({ status: 200, data });
+//       } else {
+//         reject({ status: 404 });
+//       }
+//     }, 1000);
+//   });
+// };
 
-fakeRequest("/about")
-  .then((res) => {
-    console.log(res.status);
-    console.log(res.data);
-  })
-  .catch((res) => {
-    console.log(res.status);
-  });
+// fakeRequest("/about")
+//   .then((res) => {
+//     console.log(res.status);
+//     console.log(res.data);
+//   })
+//   .catch((res) => {
+//     console.log(res.status);
+//   });
