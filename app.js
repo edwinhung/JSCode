@@ -212,24 +212,38 @@
 //     console.log(res.status);
 //   });
 
-const printFilms = (data) => {
-  for (let film of data.films) {
-    console.log(film);
-  }
-  return Promise.resolve();
-};
+// const printFilms = (data) => {
+//   for (let film of data.films) {
+//     console.log(film);
+//   }
+//   return Promise.resolve();
+// };
 
-fetch("https://swapi.dev/api/people/2")
+// fetch("https://swapi.dev/api/people/2")
+//   .then((res) => {
+//     if (!res.ok) {
+//       throw new Error(`We got ${res.status}`);
+//     }
+//     return res.json();
+//   })
+//   .then(printFilms)
+//   .catch((err) => {
+//     console.log(
+//       "Network error or didn't get a response, or failed request",
+//       err
+//     );
+//   });
+
+axios
+  .get("https://swapi.dev/api/people/2")
   .then((res) => {
-    if (!res.ok) {
-      throw new Error(`We got ${res.status}`);
-    }
-    return res.json();
+    const film = res.data.films[0];
+    console.log(film);
+    return axios.get(film);
   })
-  .then(printFilms)
+  .then((res) => {
+    console.log(res);
+  })
   .catch((err) => {
-    console.log(
-      "Network error or didn't get a response, or failed request",
-      err
-    );
+    console.log("Something is wrong", err);
   });
