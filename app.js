@@ -234,15 +234,19 @@
 //     );
 //   });
 
-axios
-  .get("https://swapi.dev/api/people/2")
+const fetchAxios = (url = "https://swapi.dev/api/people/2") => {
+  return axios.get(url);
+};
+
+fetchAxios()
   .then((res) => {
     const film = res.data.films[0];
     console.log(film);
-    return axios.get(film);
+    return Promise.resolve(film);
   })
-  .then((res) => {
-    console.log(res);
+  .then(fetchAxios)
+  .then(({ data }) => {
+    console.log(data);
   })
   .catch((err) => {
     console.log("Something is wrong", err);
