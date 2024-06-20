@@ -214,7 +214,7 @@
 fetch("https://swapi.dev/api/people/sdaf2")
   .then((res) => {
     if (!res.ok) {
-      console.log(res.status);
+      throw new Error(`We got ${res.status}`);
     } else {
       res.json().then((data) => {
         for (let film of data.films) {
@@ -224,5 +224,8 @@ fetch("https://swapi.dev/api/people/sdaf2")
     }
   })
   .catch((err) => {
-    console.log("Network error or didn't get a response", err);
+    console.log(
+      "Network error or didn't get a response, or failed request",
+      err
+    );
   });
