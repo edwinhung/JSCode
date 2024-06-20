@@ -211,18 +211,22 @@
 //   .catch((res) => {
 //     console.log(res.status);
 //   });
-fetch("https://swapi.dev/api/people/sdaf2")
+
+const printFilms = (data) => {
+  for (let film of data.films) {
+    console.log(film);
+  }
+  return Promise.resolve();
+};
+
+fetch("https://swapi.dev/api/people/2")
   .then((res) => {
     if (!res.ok) {
       throw new Error(`We got ${res.status}`);
-    } else {
-      res.json().then((data) => {
-        for (let film of data.films) {
-          console.log(film);
-        }
-      });
     }
+    return res.json();
   })
+  .then(printFilms)
   .catch((err) => {
     console.log(
       "Network error or didn't get a response, or failed request",
