@@ -211,13 +211,17 @@
 //   .catch((res) => {
 //     console.log(res.status);
 //   });
-fetch("https://swapi.dev/api/people/2")
+fetch("https://swapi.dev/api/people/sdaf2")
   .then((res) => {
-    res.json().then((data) => {
-      for (let film of data.films) {
-        console.log(film);
-      }
-    });
+    if (!res.ok) {
+      console.log(res.status);
+    } else {
+      res.json().then((data) => {
+        for (let film of data.films) {
+          console.log(film);
+        }
+      });
+    }
   })
   .catch((err) => {
     console.log("Network error or didn't get a response", err);
