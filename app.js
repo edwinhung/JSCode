@@ -234,17 +234,17 @@
 //     );
 //   });
 // Sequential
-// async function get3Pokemon() {
-//   const poke1 = await axios.get("https://pokeapi.co/api/v2/pokemon/2");
-//   const poke2 = await axios.get("https://pokeapi.co/api/v2/pokemon/3");
-//   const poke3 = await axios.get("https://pokeapi.co/api/v2/pokemon/4");
-//   console.log(poke1.data.name);
-//   console.log(poke2.data.name);
-//   console.log(poke3.data.name);
-// }
+async function get3Pokemon() {
+  const poke1 = await axios.get("https://pokeapi.co/api/v2/pokemon/2");
+  const poke2 = await axios.get("https://pokeapi.co/api/v2/pokemon/3");
+  const poke3 = await axios.get("https://pokeapi.co/api/v2/pokemon/4");
+  console.log(poke1.data.name);
+  console.log(poke2.data.name);
+  console.log(poke3.data.name);
+}
 
 // Parallell
-async function get3Pokemon() {
+async function get3PokemonPara() {
   const prom1 = axios.get("https://pokeapi.co/api/v2/pokemon/2");
   const prom2 = axios.get("https://pokeapi.co/api/v2/pokemon/3");
   const prom3 = axios.get("https://pokeapi.co/api/v2/pokemon/4");
@@ -258,4 +258,18 @@ async function get3Pokemon() {
   console.log(poke3.data.name);
 }
 
-get3Pokemon();
+(async () => {
+  const performance = window.performance;
+  const start = performance.now();
+  await get3Pokemon();
+  const end = performance.now();
+  console.log(`Sequential Execution Time: ${end - start}`);
+})();
+
+(async () => {
+  const performance = window.performance;
+  const start = performance.now();
+  await get3PokemonPara();
+  const end = performance.now();
+  console.log(`Parallel Execution Time: ${end - start}`);
+})();
