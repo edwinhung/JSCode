@@ -233,12 +233,14 @@
 //       err
 //     );
 //   });
-
-async function fetchAxios(url = "https://swapi.dev/api/people/asdfg2") {
-  const res = await axios.get(url);
-  console.log(res.data);
+// Sequential
+async function get3Pokemon() {
+  const poke1 = await axios.get("https://pokeapi.co/api/v2/pokemon/2");
+  const poke2 = await axios.get("https://pokeapi.co/api/v2/pokemon/3");
+  const poke3 = await axios.get("https://pokeapi.co/api/v2/pokemon/4");
+  console.log(poke1.data.name);
+  console.log(poke2.data.name);
+  console.log(poke3.data.name);
 }
 
-fetchAxios().catch((err) => {
-  console.log("Catch Error: ", err);
-});
+get3Pokemon();
