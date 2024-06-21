@@ -234,20 +234,7 @@
 //     );
 //   });
 
-const fetchAxios = (url = "https://swapi.dev/api/people/2") => {
-  return axios.get(url);
-};
-
-fetchAxios()
-  .then((res) => {
-    const film = res.data.films[0];
-    console.log(film);
-    return Promise.resolve(film);
-  })
-  .then(fetchAxios)
-  .then(({ data }) => {
-    console.log(data);
-  })
-  .catch((err) => {
-    console.log("Something is wrong", err);
-  });
+async function fetchAxios(url = "https://swapi.dev/api/people/2") {
+  const res = await axios.get(url);
+  console.log(res.data);
+}
