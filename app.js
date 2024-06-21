@@ -234,42 +234,72 @@
 //     );
 //   });
 // Sequential
-async function get3Pokemon() {
-  const poke1 = await axios.get("https://pokeapi.co/api/v2/pokemon/2");
-  const poke2 = await axios.get("https://pokeapi.co/api/v2/pokemon/3");
-  const poke3 = await axios.get("https://pokeapi.co/api/v2/pokemon/4");
-  console.log(poke1.data.name);
-  console.log(poke2.data.name);
-  console.log(poke3.data.name);
+// async function get3Pokemon() {
+//   const poke1 = await axios.get("https://pokeapi.co/api/v2/pokemon/2");
+//   const poke2 = await axios.get("https://pokeapi.co/api/v2/pokemon/3");
+//   const poke3 = await axios.get("https://pokeapi.co/api/v2/pokemon/4");
+//   console.log(poke1.data.name);
+//   console.log(poke2.data.name);
+//   console.log(poke3.data.name);
+// }
+
+// // Parallell
+// async function get3PokemonPara() {
+//   const prom1 = axios.get("https://pokeapi.co/api/v2/pokemon/2");
+//   const prom2 = axios.get("https://pokeapi.co/api/v2/pokemon/3");
+//   const prom3 = axios.get("https://pokeapi.co/api/v2/pokemon/4");
+//   const results = await Promise.all([prom1, prom2, prom3]);
+//   printPokemons(results);
+// }
+
+// function printPokemons(results) {
+//   for (let result of results) {
+//     console.log(result.data.name);
+//   }
+// }
+
+// (async () => {
+//   const performance = window.performance;
+//   const start = performance.now();
+//   await get3Pokemon();
+//   const end = performance.now();
+//   console.log(`Sequential Execution Time: ${end - start}`);
+// })();
+
+// (async () => {
+//   const performance = window.performance;
+//   const start = performance.now();
+//   await get3PokemonPara();
+//   const end = performance.now();
+//   console.log(`Parallel Execution Time: ${end - start}`);
+// })();
+
+function Color(r, g, b) {
+  this.r = r;
+  this.g = g;
+  this.b = b;
 }
 
-// Parallell
-async function get3PokemonPara() {
-  const prom1 = axios.get("https://pokeapi.co/api/v2/pokemon/2");
-  const prom2 = axios.get("https://pokeapi.co/api/v2/pokemon/3");
-  const prom3 = axios.get("https://pokeapi.co/api/v2/pokemon/4");
-  const results = await Promise.all([prom1, prom2, prom3]);
-  printPokemons(results);
-}
+Color.prototype.rgb = function () {
+  const { r, g, b } = this;
+  return `rgb(${r}, ${g}, ${b})`;
+};
 
-function printPokemons(results) {
-  for (let result of results) {
-    console.log(result.data.name);
+const red = new Color(255, 0, 0);
+const green = new Color(0, 255, 0);
+console.log(red.rgb());
+console.log(red.rgb === green.rgb);
+
+class Color2 {
+  constructor(r, g, b) {
+    this.r = r;
+    this.g = g;
+    this.b = b;
+  }
+  rgb() {
+    const { r, g, b } = this;
+    return `rgb(${r}, ${g}, ${b})`;
   }
 }
-
-(async () => {
-  const performance = window.performance;
-  const start = performance.now();
-  await get3Pokemon();
-  const end = performance.now();
-  console.log(`Sequential Execution Time: ${end - start}`);
-})();
-
-(async () => {
-  const performance = window.performance;
-  const start = performance.now();
-  await get3PokemonPara();
-  const end = performance.now();
-  console.log(`Parallel Execution Time: ${end - start}`);
-})();
+const blue = new Color2(0, 0, 255);
+console.log(blue.rgb());
