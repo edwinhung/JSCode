@@ -234,7 +234,11 @@
 //     );
 //   });
 
-async function fetchAxios(url = "https://swapi.dev/api/people/2") {
+async function fetchAxios(url = "https://swapi.dev/api/people/asdfg2") {
   const res = await axios.get(url);
   console.log(res.data);
 }
+
+fetchAxios().catch((err) => {
+  console.log("Catch Error: ", err);
+});
